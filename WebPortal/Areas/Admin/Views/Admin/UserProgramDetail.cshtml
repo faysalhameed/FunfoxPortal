@@ -1,0 +1,55 @@
+﻿
+
+@model WebPortal.Models.ViewModels.ProgramDetailsVM
+
+<div class="row">
+
+    <div class="col-12">
+
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Program</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model.UserProgramDetail.User != null)
+                {
+                    <tr>
+                        <td>@Model.UserProgramDetail.User.FirstName @Model.UserProgramDetail.User.LastName</td>
+                        <td>
+                            @Model.UserProgramDetail.ProgramDetail.ProgramName
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<h2>Update Program</h2>
+
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.UserProgramDetail.UserId" />
+    <select asp-items="Model.ProgramDetailList" asp-for="@Model.UserProgramDetail.ProgramDetailId" class="form-control">
+        <option disabled selected>-- Select Program --</option>
+    </select>
+    <span asp-validation-for="UserProgramDetail.ProgramDetailId" class="text-danger"></span>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+
+@section scripts {
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}

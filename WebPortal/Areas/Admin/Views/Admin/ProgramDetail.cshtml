@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ProgramDetail>
+
+<div class="row mb-4">
+    <div class="col-6">
+        <h2 class="m-0">Programs</h2>
+    </div>
+
+    <div class="col-6 admin-add">
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="Admin" asp-action="AddProgramDetail">Add Program</a>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-12">
+
+        <table class="table table-bordered" id="GradeTable">
+
+            <thead>
+                <tr>
+                    <th>Program Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var programDetail in Model)
+                {
+                    <tr>
+                        <td>@programDetail.ProgramName</td>
+                        <td>
+                            <a class="btn btn-danger" asp-area="Admin" asp-controller="Admin" asp-action="DeleteProgramDetail" asp-route-id="@programDetail.ProgramId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

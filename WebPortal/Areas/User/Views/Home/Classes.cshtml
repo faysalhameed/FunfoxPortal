@@ -1,0 +1,55 @@
+﻿@using WebPortal.Models.ViewModels
+@model UserClassesVM
+
+<h2>Enrolled Classes</h2>
+
+
+<div class="row">
+
+    <div class="col-12">
+
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>Class</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var userClass in Model.UserClasses)
+                {
+                    <tr>
+                        <td>@userClass.Class.ClassName</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<h2>Enroll Class</h2>
+
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.UserClass.UserId" />
+    <select asp-items="Model.ClassesList" asp-for="@Model.UserClass.ClassId" class="form-control">
+        <option disabled selected>-- Select Class --</option>
+    </select>
+    <span asp-validation-for="UserClass.ClassId" class="text-danger"></span>
+    <button type="submit" class="btn btn-primary">Enroll</button>
+</form>
+
+
+@section scripts {
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+

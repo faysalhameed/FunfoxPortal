@@ -1,0 +1,43 @@
+﻿@using WebPortal.Models.ViewModels
+@model ClassVM
+
+<form method="post">
+    <input type="hidden" asp-for="Cls.ClassId" />
+
+    <label asp-for="Cls.ClassName">Class</label>
+    <input asp-for="Cls.ClassName" class="form-control" />
+    <span asp-validation-for="Cls.ClassName" class="text-danger"></span>
+
+    <label asp-for="Cls.ProgramId">Program</label>
+    <select asp-for="Cls.ProgramId" asp-items="Model.ProgramList" class="form-control">
+        <option selected disabled>-- Select Program --</option>
+    </select>
+    <span asp-validation-for="Cls.ProgramId" class="text-danger"></span>
+
+    <label asp-for="Cls.Level">Level</label>
+    <input asp-for="Cls.Level" class="form-control" />
+    <span asp-validation-for="Cls.Level" class="text-danger"></span>
+
+    <label asp-for="Cls.StartTime">Start Time</label>
+    <input asp-for="Cls.StartTime" type="time" class="form-control" />
+    <span asp-validation-for="Cls.StartTime" class="text-danger"></span>
+
+    <label asp-for="Cls.EndTime">End Time</label>
+    <input asp-for="Cls.EndTime" type="time" class="form-control" />
+    <span asp-validation-for="Cls.EndTime" class="text-danger"></span>
+
+    <label asp-for="Cls.MaximumSize">Maximum Size</label>
+    <input asp-for="Cls.MaximumSize" class="form-control" />
+    <span asp-validation-for="Cls.MaximumSize" class="text-danger"></span>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+
+</form>
+
+@section scripts {
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}

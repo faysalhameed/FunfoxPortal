@@ -1,0 +1,31 @@
+﻿@model List<SelectListItem>
+
+
+<h3>Select Class</h3>
+<select id="reportSelect" asp-items="Model" class="form-control">
+    <option selected disabled>-- Select Class --</option>
+</select>
+
+
+<h5 id="showCount" class="mt-4"></h5>
+
+<table class="table table-bordered mt-2">
+
+    <thead>
+
+        <tr>
+            <th>Users</th>
+        </tr>
+
+    </thead>
+
+    <tbody id="showUsers">
+
+
+
+    </tbody>
+
+</table>
+
+
+<script src="/js/Report.js"></script>

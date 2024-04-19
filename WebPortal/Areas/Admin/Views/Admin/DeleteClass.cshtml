@@ -1,0 +1,33 @@
+﻿@using WebPortal.Models.ViewModels
+@model DeleteClassVM
+
+<label>Class</label>
+<input asp-for="Cls.ClassName" class="form-control" disabled />
+
+<label>Program</label>
+<input asp-for="Cls.Program.ProgramName" class="form-control" disabled />
+
+<label>Level</label>
+<input asp-for="Cls.Level" class="form-control" disabled />
+
+<label>Start Time</label>
+<input asp-for="Cls.StartTime" type="time" class="form-control" disabled />
+
+<label>End Time</label>
+<input asp-for="Cls.EndTime" type="time" class="form-control" disabled />
+
+<label>Maximum Size</label>
+<input asp-for="Cls.MaximumSize" class="form-control" disabled />
+
+<button onclick="DeleteClass(`/Admin/DeleteClass/${@Model.Cls.ClassId}`,@Model.UserExists.ToString().ToLower())" class="btn btn-danger">Delete</button>
+
+
+@section scripts {
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+
+<script src="/js/DeleteClass.js"></script>

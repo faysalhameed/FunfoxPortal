@@ -1,0 +1,39 @@
+﻿
+@model List<ApplicationUser>
+
+
+<div class="row">
+
+    <div class="col-12">
+
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Programs</th>
+                    <th>Classes</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.FirstName @user.LastName</td>
+                        <td>
+                            <a class="btn btn-primary" asp-area="Admin" asp-controller="Admin" asp-action="UserProgramDetail" asp-route-username="@user.UserName">Programs</a>
+                        </td>
+                        <td>
+
+                            <a class="btn btn-primary" asp-area="Admin" asp-controller="Admin" asp-action="UserClasses" asp-route-username="@user.UserName">Classes</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
